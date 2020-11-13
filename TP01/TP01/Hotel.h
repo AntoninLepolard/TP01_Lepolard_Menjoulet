@@ -13,10 +13,15 @@ class Hotel
         string _ville;
         vector<Chambre> _chambres;
     public:
-        Hotel(string id, string nom, string ville, int nbChambres);
+        Hotel(string id, string nom, string ville, vector<Chambre> chambres);
+
+        //getters
         string getId();
         string getNom();
         string getVille();
         vector<Chambre> getChambres();
+
+        //affichage
+        friend ostream& operator << (ostream& os, const Hotel& hotel);
 };
 

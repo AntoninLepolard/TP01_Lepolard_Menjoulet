@@ -1,12 +1,14 @@
 #include "Chambre.h"
+#include <ostream>
 
+using namespace std;
 /*Constructeur par defaut de la classe Chambre*/
 Chambre::Chambre()
 {
 }
 
-/*Constructeur par paramètres de la classe*/
-Chambre::Chambre(int id, TypeChambre type, int prix)
+/*Constructeur par paramï¿½tres de la classe*/
+Chambre::Chambre(string id, TypeChambre type, int prix)
 {
 	this->_id = id;
 	this->_type = type;
@@ -14,7 +16,7 @@ Chambre::Chambre(int id, TypeChambre type, int prix)
 }
 
 /*Retourne l'id de la chambre*/
-int Chambre::getId()
+string Chambre::getId()
 {
 	return this->_id;
 }
@@ -25,7 +27,7 @@ TypeChambre Chambre::getType()
 	return this->_type;
 }
 
-std::string Chambre::getStringType()
+string Chambre::getStringType()
 {
 	switch (this->getType()) {
 	case TypeChambre::Double:
@@ -49,7 +51,7 @@ int Chambre::getPrix()
 }
 
 /*setter de l'id de la chambre*/
-void Chambre::setId(int id)
+void Chambre::setId(string id)
 {
 	this->_id = id;
 }
@@ -66,11 +68,16 @@ void Chambre::setPrix(int prix)
 	this->_prix = prix;
 }
 
-std::string Chambre::toString()
+string Chambre::toString()
 {
-	std::string str = "";
-	str += "La chambre numero : " + std::to_string(this->getId()) + "\n"
+	string str = "";
+	str += "La chambre numero : " + this->getId() + "\n"
 		+ "Ayant le type : " + this->getStringType() + "\n"
-		+ "est proposee au prix de : " + std::to_string(this->getPrix()) + "euros \n";
+		+ "est proposee au prix de : " + to_string(this->getPrix()) + "euros \n";
 	return str;
+}
+
+ostream& operator << (ostream& os, const Chambre& chambre){
+	os << "ID: " <<chambre._id << endl << "Type: " << chambre._type << endl << "Prix: " <<  chambre._prix << endl;
+	return os;
 }

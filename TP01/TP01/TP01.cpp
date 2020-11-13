@@ -2,13 +2,45 @@
 //
 
 #include <iostream>
-
-
+#include <vector>
+#include "Hotel.h"
+#include "Chambre.h"
 using namespace std;
 
 int main()
 {
+    // DEBUT QUESTIONS 6.a à 6.b
+    vector<Chambre> adrianoChambres;
 
+    for (int i = 0; i < 10; i++)
+    {
+        TypeChambre type;
+        type = Single;
+        if (i < 3)
+        {
+            type = Single;
+            adrianoChambres.push_back(Chambre(to_string(i), type, 100));
+        }
+        else if (i < 8)
+        {
+            type = Double;
+            adrianoChambres.push_back(Chambre(to_string(i), type, 125));
+        }
+        else if (i < 10)
+        {
+            type = Suite;
+            adrianoChambres.push_back(Chambre(to_string(i), type, 210));
+        }
+        
+    }
+
+    Hotel adriano("ADR11","Adriano","Bari", adrianoChambres);
+
+    cout << adriano;
+    //FIN QUESTIONS 6.a à 6.b
+
+    //DEBUT QUESTIONS 6.c à 6.d
+    //FIN QUESTIONS 6.c à 6.d
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage

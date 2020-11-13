@@ -1,7 +1,9 @@
 #pragma once
 #include <string>
 
-enum class TypeChambre {
+using namespace std;
+
+enum TypeChambre {
 	Single, Double, Suite
 };
 
@@ -12,25 +14,26 @@ class Chambre
 public: 
 	// constructeur / destructeur
 	Chambre();
-	Chambre(int id, TypeChambre type, int prix);
+	Chambre(string id, TypeChambre type, int prix);
 
 	//getters
-	int getId();
+	string getId();
 	TypeChambre getType();
-	std::string getStringType();
+	string getStringType();
 	int getPrix();
 
 	//setters
-	void setId(int id);
+	void setId(string id);
 	void setType(TypeChambre type);
 	void setPrix(int prix);
 
 	//methode d'affichage
-	std::string toString();
-
+	string toString();
+	friend ostream& operator << (ostream& os, const Chambre& chambre);
 
 private:
-	int _id, _prix;
+	int _prix;
 	TypeChambre _type;
+	string _id;
 };
 
