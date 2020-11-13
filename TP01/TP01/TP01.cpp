@@ -1,13 +1,15 @@
-// TP01.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
-//
-
 #include <iostream>
 #include <vector>
 #include "Hotel.h"
 #include "Chambre.h"
 #include "Client.h"
+#include "Date.h"
 
 using namespace std;
+
+//définition après le main
+int duree(Date debut, Date fin);
+
 
 int main()
 {
@@ -54,15 +56,62 @@ int main()
         cout << client;
     }
     //FIN QUESTIONS 6.c à 6.d
+
+    //DEBUT QUESTION 7
+    bool dateValid= false;
+    Date debut, fin;
+    int d,m,y;
+    string temp;
+    while(!dateValid){
+        cout << "Entrez le jour du début de la réservation" << endl;
+        cin >> temp;
+        d = stoi(temp);
+        cout << "Entrez le mois du début de la réservation" << endl;
+        cin >> temp;
+        m = stoi(temp);
+        cout << "Entrez l'année du début de la réservation" << endl;
+        cin >> temp;
+        y = stoi(temp);
+        
+        if(debut.checkDate(y,m,d)){
+            dateValid = true;
+            debut = Date(y,m,d);
+        }
+
+        cout << "Entrez le jour de la fin de la réservation" << endl;
+        cin >> temp;
+        d = stoi(temp);
+        cout << "Entrez le mois de la fin de la réservation" << endl;
+        cin >> temp;
+        m = stoi(temp);
+        cout << "Entrez l'année de la fin de la réservation" << endl;
+        cin >> temp;
+        y = stoi(temp);
+        
+        if(fin.checkDate(y,m,d)){
+            fin = Date(y,m,d);
+        }
+        else dateValid = false;
+
+        if(!dateValid) cout << "Au moins l'une des deux dates n'est pas valide, recommencez." << endl;
+    }
+
+    cout << "Le nombre de nuits est: " << duree(debut,fin) << endl;
+   
+    //FIN QUESTION 7
 }
 
-// Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
-// Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
+//nécéssaire à la question 7
+int duree(Date debut, Date fin){
+    //gere les années bissextiles et les 28 fevriers
+    int y=debut.year(), m=debut.month(), d=debut.day();
+    int nbJoursDebut, nbJoursFin;
+    if(m < 3) y--, m += 12;
+    nbJoursDebut = 365*y + y/4 - y/100 + y/400 + (153*m - 457)/5 + d - 306; 
 
-// Astuces pour bien démarrer : 
-//   1. Utilisez la fenêtre Explorateur de solutions pour ajouter des fichiers et les gérer.
-//   2. Utilisez la fenêtre Team Explorer pour vous connecter au contrôle de code source.
-//   3. Utilisez la fenêtre Sortie pour voir la sortie de la génération et d'autres messages.
-//   4. Utilisez la fenêtre Liste d'erreurs pour voir les erreurs.
-//   5. Accédez à Projet > Ajouter un nouvel élément pour créer des fichiers de code, ou à Projet > Ajouter un élément existant pour ajouter des fichiers de code existants au projet.
-//   6. Pour rouvrir ce projet plus tard, accédez à Fichier > Ouvrir > Projet et sélectionnez le fichier .sln.
+    y=fin.year(), m=fin.month(), d=fin.day();
+    if(m < 3) y--, m += 12;
+    nbJoursFin = 365*y + y/4 - y/100 + y/400 + (153*m - 457)/5 + d - 306;
+
+    return nbJoursFin - nbJoursDebut - 1;
+}
