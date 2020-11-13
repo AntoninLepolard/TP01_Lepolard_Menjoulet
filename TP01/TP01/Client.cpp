@@ -4,14 +4,14 @@
 using namespace std;
 
 
-Client::Client(int id, string nom, string prenom, int nbReservations){
+Client::Client(string id, string nom, string prenom, int nbReservations){
     _id = id;
     _nom = nom;
     _prenom = prenom;
     _nbReservations = nbReservations;
 }
 
-int Client::getId(){
+string Client::getId(){
     return _id;
 }
 
@@ -27,7 +27,7 @@ int Client::getNbReservations(){
 
 
 
-void Client::setId(int id) {
+void Client::setId(string id) {
     _id = id;
 }
 

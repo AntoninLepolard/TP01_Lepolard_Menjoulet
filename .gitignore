@@ -353,3 +353,4 @@ MigrationBackup/
 *.o
 *.d
 app
+.vscode
