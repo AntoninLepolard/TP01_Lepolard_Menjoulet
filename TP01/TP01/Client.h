@@ -24,5 +24,8 @@ class Client
         void setNom(string nom);
         void setPrenom(string prenom);
         void setNbReservations(int nbReservations);
+
+        //affichage
+        friend ostream& operator << (ostream& os, const Client& client);
 };
 

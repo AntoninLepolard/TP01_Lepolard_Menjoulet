@@ -1,9 +1,8 @@
 #include "Client.h"
 #include <string>
+#include <ostream>
 
 using namespace std;
-
-
 Client::Client(string id, string nom, string prenom, int nbReservations){
     _id = id;
     _nom = nom;
@@ -41,4 +40,12 @@ void Client::Client::setPrenom(string prenom) {
 
 void Client::Client::setNbReservations(int nbReservations) {
     _nbReservations = nbReservations;
+}
+
+ostream& operator << (ostream& os, const Client& client){
+    os << "ID: " << client._id << endl;
+    os << "Nom: " << client._nom << endl;
+    os << "Prénom: " << client._prenom << endl;
+    os << "Nombre de réservations: " << client._nbReservations << endl;
+    return os;
 }

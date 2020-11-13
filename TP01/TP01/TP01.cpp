@@ -5,6 +5,8 @@
 #include <vector>
 #include "Hotel.h"
 #include "Chambre.h"
+#include "Client.h"
+
 using namespace std;
 
 int main()
@@ -35,11 +37,22 @@ int main()
     }
 
     Hotel adriano("ADR11","Adriano","Bari", adrianoChambres);
-
+    cout << endl << "AFFICHAGE DES INFORMATIONS DE L'HOTEL" << endl << endl;
     cout << adriano;
     //FIN QUESTIONS 6.a à 6.b
 
     //DEBUT QUESTIONS 6.c à 6.d
+    vector<Client> adrianoClients{
+        Client("CL1","Pagot","Marco",150),
+        Client("CL2","Piccolo","Fio",0),
+        Client("CL3","Curtis","Donald",3),
+        Client("CL4","Paolo","Piccolo",0)
+    };
+
+    cout << endl << "AFFICHAGE DES CLIENTS" << endl << endl;
+    for(const auto& client: adrianoClients){
+        cout << client;
+    }
     //FIN QUESTIONS 6.c à 6.d
 }
 

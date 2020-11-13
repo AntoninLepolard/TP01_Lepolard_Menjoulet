@@ -78,6 +78,8 @@ string Chambre::toString()
 }
 
 ostream& operator << (ostream& os, const Chambre& chambre){
-	os << "ID: " <<chambre._id << endl << "Type: " << chambre._type << endl << "Prix: " <<  chambre._prix << endl;
+	os << "ID: " <<chambre._id << endl;
+	os << "Type: " << chambre._type << endl ;
+	os << "Prix: " <<  chambre._prix << endl;
 	return os;
 }
