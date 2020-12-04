@@ -59,10 +59,12 @@ ostream& operator << (ostream& os, const Hotel& hotel){
     os << "ID: "<< hotel._id << endl;
     os << "Nom: "<< hotel._nom << endl;
     os << "Ville: " << hotel._ville << endl;
-    os << "Chambres: " << endl;
+    os << endl <<  "Chambres: " << endl;
     for (const auto& chambre: hotel._listeChambres){
         os << chambre;
+		os << "_______________" << endl;
     } 
+	
 
     return os; 
 }

@@ -45,7 +45,7 @@ string Chambre::getStringType() const
 }
 
 /*retourne le prix de la chambre*/
-int Chambre::getPrix()
+int Chambre::getPrix() const
 {
 	return this->_prix;
 }
@@ -68,7 +68,7 @@ void Chambre::setPrix(int prix)
 	this->_prix = prix;
 }
 
-string Chambre::toString()
+string Chambre::toString() const
 {
 	string str = "";
 	str += "La chambre numero : " + this->getId() + "\n"

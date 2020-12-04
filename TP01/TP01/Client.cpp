@@ -47,5 +47,6 @@ ostream& operator << (ostream& os, const Client& client){
     os << "Nom: " << client._nom << endl;
     os << "Prenom: " << client._prenom << endl;
     os << "Nombre de reservations: " << client._nbReservations << endl;
+	os << "_______________" << endl;
     return os;
 }

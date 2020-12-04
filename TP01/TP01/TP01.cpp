@@ -14,8 +14,10 @@ int duree(Date debut, Date fin);
 int main()
 {
     // DEBUT QUESTIONS 6.a à 6.b
-
+	//création de l'hotel
     Hotel adriano("ADR11","Adriano","Bari");
+
+	//ajout des chambres de différents types dans l'hotel
 	TypeChambre type;
 	for (int i = 0; i < 10; i++)
 	{
@@ -35,8 +37,9 @@ int main()
 			adriano.addChambre(Chambre(to_string(i), type, 210));
 		}
 	}
-    cout << endl << "AFFICHAGE DES INFORMATIONS DE L'HOTEL" << endl << endl;
+	cout << endl << "**** DEBUT AFFICHAGE INFOS HOTEL****" << endl << endl;
     cout << adriano;
+	cout << endl << "**** FIN AFFICHAGE INFOS HOTEL****" << endl << endl;
     //FIN QUESTIONS 6.a à 6.b
 
     //DEBUT QUESTIONS 6.c à 6.d
@@ -47,13 +50,15 @@ int main()
         Client("CL4","Paolo","Piccolo",0)
     };
 
-    cout << endl << "AFFICHAGE DES CLIENTS" << endl << endl;
+    cout << endl << "**** DEBUT AFFICHAGE DES CLIENTS ****" << endl << endl;
     for(const auto& client: adrianoClients){
         cout << client;
     }
+	cout << endl << "**** FIN AFFICHAGE DES CLIENTS ****" << endl << endl;
     //FIN QUESTIONS 6.c à 6.d
 
     //DEBUT QUESTION 7
+	//saisie des dates de reservation et verification de celle-ci + affichage duree de sejour
     bool dateValid= false;
     Date debut, fin;
     int d,m,y;
@@ -100,8 +105,9 @@ int main()
 	bool choixChambre = false;
 	string typeChambre;
 	while (!choixChambre) {
-		cout << "Type de chambre souhaite (Single, Double ou Suite) :" << endl;
-		cin >> typeChambre;
+		/*cout << "Type de chambre souhaite (Single, Double ou Suite) :" << endl;
+		cin >> typeChambre;*/
+
 	}
 	
 	

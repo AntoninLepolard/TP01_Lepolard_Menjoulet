@@ -20,7 +20,7 @@ public:
 	string getId() const;
 	TypeChambre getType() const;
 	string getStringType() const;
-	int getPrix();
+	int getPrix() const;
 
 	//setters
 	void setId(string id);
@@ -28,7 +28,7 @@ public:
 	void setPrix(int prix);
 
 	//methode d'affichage
-	string toString();
+	string toString() const;
 	friend ostream& operator << (ostream& os, const Chambre& chambre);
 
 private:
