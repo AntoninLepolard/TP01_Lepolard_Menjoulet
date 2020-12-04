@@ -17,9 +17,9 @@ public:
 	Chambre(string id, TypeChambre type, int prix);
 
 	//getters
-	string getId();
-	TypeChambre getType();
-	string getStringType();
+	string getId() const;
+	TypeChambre getType() const;
+	string getStringType() const;
 	int getPrix();
 
 	//setters

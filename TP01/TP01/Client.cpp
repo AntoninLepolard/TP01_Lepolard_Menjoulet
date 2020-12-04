@@ -45,7 +45,7 @@ void Client::Client::setNbReservations(int nbReservations) {
 ostream& operator << (ostream& os, const Client& client){
     os << "ID: " << client._id << endl;
     os << "Nom: " << client._nom << endl;
-    os << "Prénom: " << client._prenom << endl;
-    os << "Nombre de réservations: " << client._nbReservations << endl;
+    os << "Prenom: " << client._prenom << endl;
+    os << "Nombre de reservations: " << client._nbReservations << endl;
     return os;
 }

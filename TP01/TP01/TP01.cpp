@@ -14,31 +14,27 @@ int duree(Date debut, Date fin);
 int main()
 {
     // DEBUT QUESTIONS 6.a à 6.b
-    vector<Chambre> adrianoChambres;
 
-    for (int i = 0; i < 10; i++)
-    {
-        TypeChambre type;
-        type = Single;
-        if (i < 3)
-        {
-            type = Single;
-            adrianoChambres.push_back(Chambre(to_string(i), type, 100));
-        }
-        else if (i < 8)
-        {
-            type = Double;
-            adrianoChambres.push_back(Chambre(to_string(i), type, 125));
-        }
-        else if (i < 10)
-        {
-            type = Suite;
-            adrianoChambres.push_back(Chambre(to_string(i), type, 210));
-        }
-        
-    }
-
-    Hotel adriano("ADR11","Adriano","Bari", adrianoChambres);
+    Hotel adriano("ADR11","Adriano","Bari");
+	TypeChambre type;
+	for (int i = 0; i < 10; i++)
+	{
+		if (i < 3)
+		{
+			type = Single;
+			adriano.addChambre(Chambre(to_string(i), type, 100));
+		}
+		else if (i < 8)
+		{
+			type = Double;
+			adriano.addChambre(Chambre(to_string(i), type, 125));
+		}
+		else if (i < 10)
+		{
+			type = Suite;
+			adriano.addChambre(Chambre(to_string(i), type, 210));
+		}
+	}
     cout << endl << "AFFICHAGE DES INFORMATIONS DE L'HOTEL" << endl << endl;
     cout << adriano;
     //FIN QUESTIONS 6.a à 6.b
@@ -63,13 +59,13 @@ int main()
     int d,m,y;
     string temp;
     while(!dateValid){
-        cout << "Entrez le jour du début de la réservation" << endl;
+        cout << "Entrez le jour du debut de la reservation" << endl;
         cin >> temp;
         d = stoi(temp);
-        cout << "Entrez le mois du début de la réservation" << endl;
+        cout << "Entrez le mois du debut de la reservation" << endl;
         cin >> temp;
         m = stoi(temp);
-        cout << "Entrez l'année du début de la réservation" << endl;
+        cout << "Entrez l'année du debut de la reservation" << endl;
         cin >> temp;
         y = stoi(temp);
         
@@ -78,13 +74,13 @@ int main()
             debut = Date(y,m,d);
         }
 
-        cout << "Entrez le jour de la fin de la réservation" << endl;
+        cout << "Entrez le jour de la fin de la reservation" << endl;
         cin >> temp;
         d = stoi(temp);
-        cout << "Entrez le mois de la fin de la réservation" << endl;
+        cout << "Entrez le mois de la fin de la reservation" << endl;
         cin >> temp;
         m = stoi(temp);
-        cout << "Entrez l'année de la fin de la réservation" << endl;
+        cout << "Entrez l'année de la fin de la reservation" << endl;
         cin >> temp;
         y = stoi(temp);
         
@@ -99,6 +95,18 @@ int main()
     cout << "Le nombre de nuits est: " << duree(debut,fin) << endl;
    
     //FIN QUESTION 7
+
+	//Question 8 : choix d'une chambre
+	bool choixChambre = false;
+	string typeChambre;
+	while (!choixChambre) {
+		cout << "Type de chambre souhaite (Single, Double ou Suite) :" << endl;
+		cin >> typeChambre;
+	}
+	
+	
+	
+
 }
 
 //nécéssaire à la question 7
@@ -115,3 +123,4 @@ int duree(Date debut, Date fin){
 
     return nbJoursFin - nbJoursDebut - 1;
 }
+

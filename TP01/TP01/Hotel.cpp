@@ -1,11 +1,11 @@
 #include "Hotel.h"
 #include <ostream>
 
-Hotel::Hotel(string id, string nom, string ville, vector<Chambre> chambres) {
+Hotel::Hotel(string id, string nom, string ville) {
     _id = id;
     _nom = nom;
     _ville = ville;
-    _chambres = chambres;    
+	_listeChambres = vector<Chambre> ();
 }
 
 string Hotel::getId() {
@@ -21,7 +21,38 @@ string Hotel::getVille() {
 }
 
 vector<Chambre> Hotel::getChambres() {
-    return _chambres;    
+    return _listeChambres;    
+}
+
+/*Méthode pour ajouter une chambre dans la liste de chambres de l'hotel*/
+void Hotel::addChambre(Chambre chambre)
+{
+	this->_listeChambres.push_back(chambre);
+}
+
+/*renvoie l'index de l'instance de chambre dans le tableau*/
+int Hotel::getIndex(Chambre chambre)
+{
+	int i = 0;
+	int index = -1;
+	bool found = false;
+	while (i < this->_listeChambres.size() && found == false)
+	{
+		if (this->getChambres().at(i).getId() == chambre.getId())
+		{
+			index = i;
+			found = true;
+		}
+		i++;
+	}
+	return index;
+}
+
+/*supprime la chambre souhaitee de la liste*/
+void Hotel::removeChambre(Chambre chambre)
+{
+	
+	this->_listeChambres.erase(_listeChambres.begin() + getIndex(chambre));
 }
 
 ostream& operator << (ostream& os, const Hotel& hotel){
@@ -29,7 +60,7 @@ ostream& operator << (ostream& os, const Hotel& hotel){
     os << "Nom: "<< hotel._nom << endl;
     os << "Ville: " << hotel._ville << endl;
     os << "Chambres: " << endl;
-    for (const auto& chambre: hotel._chambres){
+    for (const auto& chambre: hotel._listeChambres){
         os << chambre;
     } 
 

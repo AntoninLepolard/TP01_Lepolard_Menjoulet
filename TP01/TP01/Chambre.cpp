@@ -16,18 +16,18 @@ Chambre::Chambre(string id, TypeChambre type, int prix)
 }
 
 /*Retourne l'id de la chambre*/
-string Chambre::getId()
+string Chambre::getId() const
 {
 	return this->_id;
 }
 
 /*retourne le type de la chambre*/
-TypeChambre Chambre::getType()
+TypeChambre Chambre::getType() const
 {
 	return this->_type;
 }
 
-string Chambre::getStringType()
+string Chambre::getStringType() const
 {
 	switch (this->getType()) {
 	case TypeChambre::Double:
@@ -79,7 +79,7 @@ string Chambre::toString()
 
 ostream& operator << (ostream& os, const Chambre& chambre){
 	os << "ID: " <<chambre._id << endl;
-	os << "Type: " << chambre._type << endl ;
+	os << "Type: " << chambre.getStringType() << endl ;
 	os << "Prix: " <<  chambre._prix << endl;
 	return os;
 }
