@@ -19,12 +19,19 @@ class Reservation
 
 		//getters
 		string getId() const;
+        string getClientId() const;
+        string getHotelId() const;
+        string getChambreId() const;
 		Date getDebut() const;
 		Date getFin() const;
 
 		//setters
 		void setDebut(Date d);
 		void setFin(Date d);
+        void setId(string id);
+        void setHotelId(string hotelId);
+        void setClientId(string clientId);
+        void setChambreId(string chambreId);
 		
 
 };

@@ -14,6 +14,21 @@ string Reservation::getId() const
 	return this->_id;
 }
 
+string Reservation::getHotelId() const
+{
+	return this->_hotelId;
+}
+
+string Reservation::getChambreId() const
+{
+	return this->_chambreId;
+}
+
+string Reservation::getClientId() const
+{
+	return this->_clientId;
+}
+
 Date Reservation::getDebut() const
 {
 	return this->_debut;
@@ -34,4 +49,18 @@ void Reservation::setFin(Date d)
 	if (d > this->getDebut()) {
 		this->_fin = d;
 	}
+}
+
+void Reservation::setId(string id){
+	this->_id = id;
+}
+void Reservation::setHotelId(string hotelId){
+	this->_hotelId = hotelId;
+}
+void Reservation::setClientId(string clientId){
+	this->_clientId = clientId;
+}
+
+void Reservation::setChambreId(string chambreId){
+	this->_chambreId = chambreId;
 }

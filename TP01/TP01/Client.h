@@ -14,10 +14,10 @@ class Client
         Client(string id, string nom, string prenom, int nbReservations);
 
         //getters
-        string getId();
-        string getNom();
-        string getPrenom();
-        int getNbReservations();
+        string getId() const;
+        string getNom() const;
+        string getPrenom() const;
+        int getNbReservations() const;
 
         //setters
         void setId(string id);

@@ -10,17 +10,17 @@ Client::Client(string id, string nom, string prenom, int nbReservations){
     _nbReservations = nbReservations;
 }
 
-string Client::getId(){
+string Client::getId() const{
     return _id;
 }
 
-string Client::getNom(){
+string Client::getNom() const{
     return _nom;
 }
-string Client::getPrenom(){
+string Client::getPrenom() const{
     return _prenom;
 }
-int Client::getNbReservations(){
+int Client::getNbReservations()const{
     return _nbReservations;
 }
 
